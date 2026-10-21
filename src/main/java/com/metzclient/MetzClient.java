@@ -52,7 +52,7 @@ public class MetzClient implements ClientModInitializer {
                 if (best >= 0) client.player.getInventory().selectedSlot = best;
             }
             boolean wantZoom = enabled("Zoom") && zoomKey.isPressed();
-            if (wantZoom && !zoomHeld) { oldFov = client.options.getFov().getValue(); client.options.getFov().setValue(Math.max(30, oldFov / 3)); zoomHeld = true; }
+            if (wantZoom && !zoomHeld) { oldFov = client.options.getFov().getValue(); client.options.getFov().setValue(Math.max(30, (int) (oldFov / 3))); zoomHeld = true; }
             else if (!wantZoom && zoomHeld) { client.options.getFov().setValue(oldFov); zoomHeld = false; }
             if (enabled("Fullbright")) client.options.getGamma().setValue(16.0);
             else if (Math.abs(client.options.getGamma().getValue() - 16.0) < 0.01) client.options.getGamma().setValue(1.0);
