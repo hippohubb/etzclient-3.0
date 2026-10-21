@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "metzclient",
+  "version": "${version}",
+  "name": "MetzClient",
+  "description": "A compact blue-themed Minecraft utility client.",
+  "authors": ["MetzClient"],
+  "environment": "client",
+  "entrypoints": { "client": ["com.metzclient.MetzClient"] },
+  "depends": { "fabricloader": ">=0.16.5", "minecraft": "~1.21.1", "java": ">=21", "fabric-api": "*" }
+}
