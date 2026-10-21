@@ -25,7 +25,7 @@ public class MetzClient implements ClientModInitializer {
     private static KeyBinding openKey;
     private static KeyBinding zoomKey;
     private static boolean zoomHeld;
-    private static double oldFov = 70;
+    private static int oldFov = 70;
     private static long lastAttack = 0;
     private static int cps = 0;
     private static long cpsWindow = 0;
