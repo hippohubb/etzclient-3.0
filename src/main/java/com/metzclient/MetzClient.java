@@ -37,8 +37,23 @@ public class MetzClient implements ClientModInitializer {
     };
     @Override public void onInitializeClient() {
         for (String n : NAMES) FEATURES.put(n, Set.of("Coordinates", "FPS Counter", "Direction", "Storage ESP", "Armor Status").contains(n));
-        openKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.metzclient.open", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_RIGHT_SHIFT, "category.metzclient"));
-        zoomKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.metzclient.zoom", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_C, "category.metzclient"));
+        openKey = KeyBindingHelper.registerKeyBinding(
+    KeyBinding.modifier(
+        "key.metzclient.open",
+        InputUtil.Type.KEYSYM,
+        GLFW.GLFW_KEY_RIGHT_SHIFT,
+        "category.metzclient"
+    )
+);
+
+zoomKey = KeyBindingHelper.registerKeyBinding(
+    KeyBinding.modifier(
+        "key.metzclient.zoom",
+        InputUtil.Type.KEYSYM,
+        GLFW.GLFW_KEY_C,
+        "category.metzclient"
+    )
+);
         HudRenderCallback.EVENT.register((ctx, tickDelta) -> renderHud(ctx));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (openKey.wasPressed()) client.setScreen(new MetzScreen());
