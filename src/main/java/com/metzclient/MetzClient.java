@@ -67,7 +67,7 @@ public class MetzClient implements ClientModInitializer {
         if (MC.player == null || MC.world == null) return;
         int sw = MC.getWindow().getScaledWidth();
         // Brand mark is always visible while in-world, top-right as requested.
-        c.drawTexture(net.minecraft.client.render.RenderLayer::getGuiTextured, LOGO, sw-74, 8, 0, 0, 66, 54, 1387, 1134);
+        c.drawTexture(LOGO, sw - 74, 8, 0, 0, 66, 54, 1387, 1134);
         int y = 8; int blue = 0xff12bfff;
         if (enabled("Coordinates")) { line(c, String.format("XYZ %.1f / %.1f / %.1f", MC.player.getX(), MC.player.getY(), MC.player.getZ()), 8, y, blue); y += 11; }
         if (enabled("FPS Counter")) { line(c, "FPS " + MC.getCurrentFps(), 8, y, blue); y += 11; }
